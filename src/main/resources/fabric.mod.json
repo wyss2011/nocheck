@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "nocheck",
+  "version": "${version}",
+  "name": "No Registry Check",
+  "description": "把服务端所有注册表标记为可选，让没装模组的客户端也能进服（含 mineflayer 这类纯协议客户端）。",
+  "authors": ["Dafeiyu"],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["com.dafeiyu.nocheck.NoCheckMod"]
+  },
+  "depends": {
+    "fabricloader": ">=0.18.2",
+    "minecraft": "~1.21.11",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}

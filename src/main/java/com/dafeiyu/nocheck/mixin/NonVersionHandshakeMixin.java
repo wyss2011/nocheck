@@ -13,14 +13,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
  * 于是永远被判为版本不匹配。
  *
  * 这里让方法恒定返回 null（= 匹配），握手直接放行。
- *
- * 用 targets 字符串而不是类引用，这样编译时不需要 NoN 作为依赖。
+ * 注意 mismatchMessage 是静态方法，回调也必须是 static。
  */
 @Mixin(targets = "com.nonid.network.NonVersionHandshake")
 public class NonVersionHandshakeMixin {
 
     @Inject(method = "mismatchMessage", at = @At("HEAD"), cancellable = true)
-    private void nocheck$skipMismatch(String remoteVersion, int remoteProtocolVersion, CallbackInfoReturnable<String> cir) {
+    private static void nocheck$skipMismatch(String remoteVersion, int remoteProtocolVersion, CallbackInfoReturnable<String> cir) {
         cir.setReturnValue(null);
     }
 }

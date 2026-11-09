@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.dafeiyu.nocheck.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "NonVersionHandshakeMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
